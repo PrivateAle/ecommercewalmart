@@ -10,6 +10,9 @@ require 'fig_newton'
 
 require_all 'lib'
 
+Capybara.default_driver = :selenium
+Capybara.default_wait_time = 60
+
 #World(PageObject::PageFactory)
 
   Capybara::Webkit.configure do |config|
