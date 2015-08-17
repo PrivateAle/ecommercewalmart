@@ -2,7 +2,7 @@
 #!/usr/bin/env ruby
 
 Dado(/^Eu entro no site do Walmart$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  visit "http://www.walmart.com.br/busca"
 end
 
 Quando(/^Entao eu digito "([^"]*)" na barra de "([^"]*)"$/) do |arg1, arg2|
