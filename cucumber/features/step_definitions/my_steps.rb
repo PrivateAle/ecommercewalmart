@@ -20,6 +20,7 @@ E(/^adicionar no carrinho$/) do
 Entao(/^o item deve estar no carrinho$/) do
   find(:css, '.topbar-buttons.open-link.cart-link').click
   expect(page).to have_content 'Smart TV LED Full HD'
+  expect(page).to have_content '1 item'
   find(:css, '#btn-finalize-cart').click
   find(:css, '.mfp-close').click
 end
