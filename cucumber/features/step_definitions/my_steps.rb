@@ -1,4 +1,4 @@
-# encoding: utf-8
+# encoding: iso-8859-1
 #!/usr/bin/env ruby
 
 Dado(/^que eu acesso o walmart$/) do
@@ -13,7 +13,7 @@ Quando(/^eu buscar por um produto do tipo televisao$/) do
   end
 
 E(/^adicionar no carrinho$/) do
-  have_content'Smart TV LED 3D Ultra HD/4k Curva 55 Samsung UN55JU7500 Quad Core Clear Motion Rate 1200Hz FunÃ§Ã£o Game'
+  have_content'Smart TV LED 3D Ultra HD/4k Curva 55 Samsung UN55JU7500 Quad Core Clear Motion Rate 1200Hz Função Game'
   click_button'buy-button btn btn-success'
   click_button'mfp-close'
   end

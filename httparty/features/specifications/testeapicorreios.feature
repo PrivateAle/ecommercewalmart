@@ -1,10 +1,16 @@
 # language: pt
 
-Funcionalidade: Compra de televisor no Site
+Funcionalidade: Testando cep com Api dos Correios
 
-  Cenario: Compra de televisao
+  Cenario: Validando CEP com API
 
-    Dado que eu acessei o walmart
-    Quando eu buscar por um produto do tipo televisao
-    E adicionar no carrinho
-    Entao o item deve estar no carrinho
+    Dado que insira um cep valido para consulta
+    Quando a requisicao de consulta for realizada
+    Entao devo receber a mensagem de status e resultado da pesquisa
+
+
+  Cenario: Validando CEP invalido com API
+
+    Dado que insira um cep invalido para consulta
+    Quando a requisicao de consulta invalida for realizada
+    Entao devo receber a mensagem de status e resultado da pesquisa invalida

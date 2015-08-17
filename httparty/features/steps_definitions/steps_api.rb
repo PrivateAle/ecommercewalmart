@@ -1,25 +1,40 @@
-# encoding: utf-8
+# encoding: iso-8859-1
 #!/usr/bin/env ruby
 
-Dado(/^que eu acesso o walmart$/) do
-  visit 'http://www.walmart.com.br'
+Dado(/^que insira um cep valido para consulta$/) do
+  require 'uri'
+  require 'net/http'
+  url = URI("http://cep.correiocontrol.com.br/01508001.json")
 end
 
-Quando(/^eu buscar por um produto do tipo televisao$/) do
-  page.find(:id, 'suggestion-search').click
-  fill_in'suggestion-search',with=> 'TV'
-  click_button 'search-icon'
-  page.all(:id, 'category-products')[2].click
+Quando(/^a requisicao de consulta for realizada$/) do
+  http = Net::HTTP.new(url.host, url.port)
+  request = Net::HTTP::Get.new(url)
+  request["authorization"] = 'Basic Og=='
 end
 
-E(/^adicionar no carrinho$/) do
-  have_content'Smart TV LED 3D Ultra HD/4k Curva 55 Samsung UN55JU7500 Quad Core Clear Motion Rate 1200Hz Função Game'
-  click_button'buy-button btn btn-success'
-  click_button'mfp-close'
+Entao(/^devo receber a mensagem de status e resultado da pesquisa$/) do
+  responses = response_from_httparty
+  response = http.request(request)
+  puts response.read_body
+  puts responses.read_header
 end
 
-Entao(/^o item deve estar no carrinho$/) do
-  click_button'cart-icon'
-  have_content 'Meu Carrinho'
-  have_content '1item'
-  have_content'Smart TV LED 3D Ultra HD/4k Curva 55'
+Dado(/^que insira um cep invalido para consulta$/) do
+  require 'uri'
+  require 'net/http'
+  url = URI("http://cep.correiocontrol.com.br/09999001.json")
+end
+
+Quando(/^a requisicao de consulta invalida for realizada$/) do
+  http = Net::HTTP.new(url.host, url.port)
+  request = Net::HTTP::Get.new(url)
+  request["authorization"] = 'Basic Og=='
+end
+
+Entao(/^devo receber a mensagem de status e resultado da pesquisa invalida$/) do
+  responses = response_from_httparty
+  response = http.request(request)
+  puts response.read_body
+  puts responses.read_header
+end
