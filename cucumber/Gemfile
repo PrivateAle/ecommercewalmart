@@ -1,0 +1,6 @@
+source "https://rubygems.org"
+
+gem "capybara/cucumber"
+gem "selenium-webdriver"
+gem "capybara-webkit"
+gem "gherkin"
