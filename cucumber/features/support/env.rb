@@ -1,14 +1,16 @@
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__),'../../','lib'))
+#$LOAD_PATH.unshift(File.join(File.dirname(__FILE__),'../../','lib'))
 
 require 'capybara/cucumber'
 require "selenium-webdriver"
-require 'rspec-expectations'
-require 'page-object'
-require 'require_all'
-require 'data_magic'
-require 'fig_newton'
+require "capybara-webkit"
+require "gherkin"
+#require 'rspec-expectations'
+#require 'page-object'
+#require 'require_all'
+#require 'data_magic'
+#require 'fig_newton'
 
-require_all 'lib'
+#require_all 'lib'
 
 Capybara.default_driver = :selenium
 Capybara.default_wait_time = 60
