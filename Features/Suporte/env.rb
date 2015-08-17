@@ -10,7 +10,7 @@ require 'fig_newton'
 
 require_all 'lib'
 
-World(PageObject::PageFactory)
+#World(PageObject::PageFactory)
 
   Capybara::Webkit.configure do |config|
     config.allow_url("https://www2.walmart.com.br/checkout/content/carrinho")
