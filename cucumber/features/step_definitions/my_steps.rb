@@ -1,7 +1,7 @@
 # encoding: utf-8
 #!/usr/bin/env ruby
 
-Dado(/^que eu acessei o walmart$/) do
+Dado(/^que eu acesso o walmart$/) do
   visit 'http://www.walmart.com.br'
 end
 
