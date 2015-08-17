@@ -1,8 +1,8 @@
 # language: pt
 
-Funcionalidade: Compra de televisor
+Funcionalidade: Compra de televisor no Site
 
-Cenario: Compra de televisor
+Cenario: Compra de televisao
 
   Dado que eu acessei o walmart
   Quando eu buscar por um produto do tipo televisao
